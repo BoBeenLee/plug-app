@@ -1,16 +1,27 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "target": "es5",
     "baseUrl": "./",
     "rootDir": "./",
     "jsx": "react",
     "module": "es2015",
     "moduleResolution": "node",
-    "noUnusedLocals": true,
-    "pretty": true,
+    "typeRoots": [
+      "typings",
+      "node_modules/@types"
+    ],
+    "skipLibCheck": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "lib": ["es2015", "dom"]
+    "lib": [
+      "es2015",
+      "dom"
+    ]
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ]
 }
