@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Root from './pages/Root';
+import App from './App';
 import { createHashHistory } from 'history';
 import './global.css';
 
@@ -9,18 +9,18 @@ const history = createHashHistory();
 
 render(
   <AppContainer>
-    <Root history={history} />
+    <App history={history} />
   </AppContainer>,
   document.getElementById('root')
 );
 
 if ((module as any).hot) {
-  (module as any).hot.accept('./pages/Root', () => {
+  (module as any).hot.accept('./App', () => {
     // eslint-disable-next-line global-require
-    const NextRoot = require('./pages/Root').default;
+    const NextApp = require('./App').default;
     render(
       <AppContainer>
-        <NextRoot history={history} />
+        <NextApp history={history} />
       </AppContainer>,
       document.getElementById('root')
     );
