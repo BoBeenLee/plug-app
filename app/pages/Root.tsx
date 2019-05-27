@@ -1,20 +1,26 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from "mobx-react";
+
+import { BrowserRouter as Router } from "react-router-dom";
 import Routes from '../Routes';
 import { History } from 'history';
+import { getRootStore } from '../store/Store';
 
 type Props = {
   history: History<any>;
 };
 
+const store = getRootStore();
+
 export default class Root extends Component<Props> {
   render() {
-    const { history } = this.props;
     return (
-      <ConnectedRouter history={history}>
-        <Routes />
-      </ConnectedRouter>
+      <Provider store={store}>
+        <Router>
+          <Routes />
+        </Router>
+      </Provider>
     );
   }
 }
